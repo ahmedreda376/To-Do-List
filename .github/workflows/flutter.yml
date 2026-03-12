@@ -16,10 +16,13 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0'
+          flutter-version: 'stable'  # بدل ما نحط رقم معين
 
       - name: Install dependencies
         run: flutter pub get
+
+      - name: Accept Android licenses
+        run: yes | sdkmanager --licenses
 
       - name: Build APK
         run: flutter build apk --release
